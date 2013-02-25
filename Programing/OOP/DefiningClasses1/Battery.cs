@@ -1,11 +1,34 @@
-﻿namespace GSMClasses
+﻿using System;
+
+namespace GSMClasses
 {
     class Battery
     {
-        private string model;
-        private int hoursIdle;
-        private int hoursTalk;
+        public enum BatteryType //This is for ex.3
+        {
+            LiIon, NiMH, NiCd
+        }
 
+        //Fields
+        private string model = null;
+        private ushort? hoursIdle = null;
+        private ushort? hoursTalk = null;
+        private BatteryType type;
+
+        //Constructors
+        public Battery()
+        {
+        }
+
+        public Battery(string model, BatteryType type, ushort? hoursIdle = null, ushort? hoursTalk = null)
+        {
+            this.Model = model;
+            this.Type = type;
+            this.HoursIdle = hoursIdle;
+            this.HoursTalk = hoursTalk;
+        }
+
+        //Properties
         public string Model
         {
             get
@@ -14,39 +37,30 @@
             }
             set
             {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException("Invalid battery model!");
+                }
                 this.model = value;
             }
         }
 
-        public int HoursIdle
+        public ushort? HoursIdle
         {
-            get
-            {
-                return this.hoursIdle;
-            }
-            set
-            {
-                this.hoursIdle = value;
-            }
+            get;
+            set;
         }
 
-        public int HoursTalk
+        public ushort? HoursTalk
         {
-            get
-            {
-                return this.hoursTalk;
-            }
-            set
-            {
-                this.hoursTalk = value;
-            }
+            get;
+            set;
         }
 
-        public Battery(string model, int hoursIdle, int hoursTalk)
+        public BatteryType Type
         {
-            this.model = model;
-            this.hoursIdle = hoursIdle;
-            this.hoursTalk = hoursTalk;
+            get;
+            set;
         }
     }
 }

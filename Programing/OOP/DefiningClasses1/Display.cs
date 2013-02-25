@@ -1,11 +1,26 @@
-﻿namespace GSMClasses
+﻿using System;
+
+namespace GSMClasses
 {
     class Display
     {
-        private int size;
-        private int colors;
+        //Fields
+        private string size;
+        private uint? colors = null;
 
-        public int Size
+        //Constructors
+        public Display()
+        {
+        }
+
+        public Display(string size, uint? colors = null)
+        {
+            this.Size = size;
+            this.Colors = colors;
+        }
+
+        //Properties
+        public string Size
         {
             get
             {
@@ -13,26 +28,18 @@
             }
             set
             {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException("Invalid input!");
+                }
                 this.size = value;
             }
         }
 
-        public int Colors
+        public uint? Colors
         {
-            get
-            {
-                return this.colors;
-            }
-            set
-            {
-                this.colors = value;
-            }
-        }
-
-        public Display(int size, int colors)
-        {
-            this.size = size;
-            this.colors = colors;
+            get;
+            set;
         }
     }
 }

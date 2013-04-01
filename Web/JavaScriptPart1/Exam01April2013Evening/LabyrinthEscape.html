@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var args = [
+            "5 8",
+            "0 0",
+            "rrrrrrrd",
+            "rludulrd",
+            "lurlddud",
+            "urrrldud",
+            "ulllllll"
+        ];
+
+        Solve(args);
+
+        function move(matrix, startRow, startCol) {
+
+        }
+
+        function Solve(args) {
+            var steps = 0;
+            var sum = 0;
+            var out = false;
+            var lost = false;
+
+            var size = args[0].split(" ");
+            var n = parseInt(size[0]);
+            var m = parseInt(size[1]);
+
+            var start = args[1].split(" ");
+            var startRow = parseInt(start[0]);
+            var startCol = parseInt(start[1]);
+
+            var matrix = [];
+            for (var rows = 2; rows < args.length; rows++) {
+                matrix[rows - 2] = args[rows].split("");
+            }
+
+            for (steps = 0; steps < (n * m) ; steps++) {
+
+                sum += ((startRow * m) + (startCol + 1));
+
+                if (matrix[startRow][startCol] == "l") {
+                    matrix[startRow][startCol] = "v"
+                    startCol += -1;
+                }
+                else if (matrix[startRow][startCol] == "r") {
+                    matrix[startRow][startCol] = "v"
+                    startCol += 1;
+                }
+                else if (matrix[startRow][startCol] == "u") {
+                    matrix[startRow][startCol] = "v"
+                    startRow += -1;
+                }
+                else if (matrix[startRow][startCol] == "d") {
+                    matrix[startRow][startCol] = "v"
+                    startRow += 1;
+                }
+                else if (matrix[startRow][startCol] == "v") {
+                    return "lost " + steps;
+                }
+
+                if ((startRow < 0 || startRow >= n) || (startCol < 0 || startCol >= m)) {
+                    return "out " + sum;
+                }
+
+            }
+
+            
+            return "out " + sum;
+        }
+    </script>
+</body>
+</html>

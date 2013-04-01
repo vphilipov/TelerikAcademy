@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var args = [
+            "-8",
+            "-1",
+            "-6",
+            "-9",
+            "-4",
+            "-4",
+            "-2",
+            "-10",
+            "-1"
+        ];
+        //args[0] = 
+
+        Solve(args);
+
+        function Solve(args) {
+            var n = parseInt(args[0]);
+            var numbers = [];
+            var maxValue = -2000001;
+
+            for (var index = 1; index < args.length; index++) {
+                numbers[index - 1] = parseInt(args[index]);
+                if (numbers[index - 1] > maxValue) {
+                    maxValue = numbers[index - 1];
+                }
+            }
+
+            var maximalSum = 0;
+            var sum = 0;
+
+            for (var i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+                if (sum > maximalSum) {
+                    maximalSum = sum;
+                }
+
+                if (sum < 0) {
+                    sum = 0;
+                }
+            }
+            if (maximalSum > 0) {
+                return maximalSum;
+            }
+            else {
+                return maxValue;
+            }
+            
+        }
+    </script>
+</body>
+</html>

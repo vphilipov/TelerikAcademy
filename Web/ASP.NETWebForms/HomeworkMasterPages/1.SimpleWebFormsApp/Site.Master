@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="_1.SimpleWebFormsApp.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="Site.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <img src="http://www.telerik.com/assets/img/telerik-navigation/telerik-logo.png" alt="Alternate Text" />
+        </header>
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="~/About.aspx" runat="server">About</a></li>
+                    <li><a href="~/Friends.aspx" runat="server">Friends</a></li>
+                    <li><a href="~/Info.aspx" runat="server">Additional Info</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <section>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+            </asp:ContentPlaceHolder>
+        </section>
+        <footer>
+            <p>&copy; By a Telerik Student 2013</p>
+        </footer>
+    </form>
+</body>
+</html>

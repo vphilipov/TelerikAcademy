@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tweeter", "Tweeter\Tweeter.csproj", "{9E4008D4-0D48-4707-9185-809CB41520D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tweeter.Models", "Tweeter.Models\Tweeter.Models.csproj", "{2AFFBAA3-AC84-42F9-A890-E832B28E2E61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tweeter.Data", "Tweeter.Data\Tweeter.Data.csproj", "{B12ACA77-A973-4F2B-AC11-C88797E393CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E4008D4-0D48-4707-9185-809CB41520D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E4008D4-0D48-4707-9185-809CB41520D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E4008D4-0D48-4707-9185-809CB41520D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E4008D4-0D48-4707-9185-809CB41520D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AFFBAA3-AC84-42F9-A890-E832B28E2E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AFFBAA3-AC84-42F9-A890-E832B28E2E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AFFBAA3-AC84-42F9-A890-E832B28E2E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AFFBAA3-AC84-42F9-A890-E832B28E2E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B12ACA77-A973-4F2B-AC11-C88797E393CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B12ACA77-A973-4F2B-AC11-C88797E393CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B12ACA77-A973-4F2B-AC11-C88797E393CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B12ACA77-A973-4F2B-AC11-C88797E393CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

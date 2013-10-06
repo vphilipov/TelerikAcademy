@@ -1,0 +1,9 @@
+﻿@model ICollection<Tweeter.ViewModels.TweetViewModel>
+
+@foreach (var tweet in Model)
+{
+    <div>
+        <div>@tweet.Text</div>
+        <p>by @tweet.Author at @tweet.DateTweeted</p>
+    </div>
+}

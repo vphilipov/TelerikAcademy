@@ -1,0 +1,52 @@
+﻿@model Tweeter.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>Tag</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.UserName, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.UserName)
+                @Html.ValidationMessageFor(model => model.UserName, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @*@Html.LabelFor(model => model.Roles, new { @class = "control-label" })*@
+            @Html.Label("role", "Add user to role", new { @class = "control-label" })
+            <div class="controls">
+                @Html.DropDownList("role")
+                @*@Html.EditorFor(model => model.Roles)
+                @Html.ValidationMessageFor(model => model.Roles, null, new { @class = "help-inline" })*@
+            </div>
+        </div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Save" class="btn" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

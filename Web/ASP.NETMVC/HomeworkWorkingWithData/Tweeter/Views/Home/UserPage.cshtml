@@ -1,0 +1,64 @@
+﻿@model ICollection<Tweeter.ViewModels.TweetViewModel>
+
+@{
+    ViewBag.Title = User.Identity.Name;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    @using (Ajax.BeginForm("Search", new AjaxOptions
+    {
+        UpdateTargetId = "tweets",
+        InsertionMode = InsertionMode.Replace,
+        OnSuccess = "clearSearch"
+    }))
+    {
+        <input type="text" id="searchBox" name="query" />
+        <input type="submit" value="Search &raquo;" class="btn btn-primary" />
+    }
+</div>
+
+<div>
+    @using (Ajax.BeginForm("CreateTweet",
+        new
+    {
+        Author = User.Identity.Name,
+        DateTweeted = DateTime.Now
+    },
+        new AjaxOptions
+        {
+            HttpMethod = "Post",
+            UpdateTargetId = "tweets",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "clearBox"
+        }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        @Html.TextAreaFor(model => model.FirstOrDefault().Text, new { name = "Text", id = "textArea" })
+        <input type="submit" value="Tweet" class="btn btn-primary" />
+        <br />
+        @Html.ValidationMessageFor(model => model.FirstOrDefault().Text, "Tweet length must be between 1 and 140 symbols!")
+    }
+</div>
+
+<div id="tweets">
+    @Html.Partial("_TweetPartial", Model)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/ajax")
+}
+
+<script type="text/javascript">
+    function clearBox() {
+        $("#textArea").val("");
+    };
+
+    function clearSearch() {
+        $("#searchBox").val("");
+    }
+</script>
